@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#3f6659">
+  <title>رفيق المذاكرة — خطة الترم الأول 2026–2027</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=8">
+</head>
+<body id="top">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="رفيق المذاكرة">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5V5.5Z"/>
+            <path d="M8 7h8M8 11h5"/>
+            <path d="m14.5 16 1.7 1.7 3.1-3.4"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-kicker">رفيق المذاكرة</span>
+          <span class="brand-title">خطة الترم الأول <b>2026–2027</b></span>
+        </span>
+      </a>
+
+      <div class="topbar-actions">
+        <button class="btn btn-soft btn-sm" id="todayBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="17" rx="2"/>
+            <path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+          <span>اليوم</span>
+        </button>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="التبديل إلى الوضع الداكن" title="تبديل الوضع">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">التقدم الكلي</p>
+        <h2 id="heroTitle">ابدأ أول يوم</h2>
+        <p class="hero-subtitle" id="heroSubtitle">خطوة صغيرة كل يوم، والخطة كلها قدامك.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="focusBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="7"/>
+              <circle cx="12" cy="12" r="2"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+            </svg>
+            التركيز على اليوم
+          </button>
+          <button class="btn btn-ghost" id="nextBtn" type="button">المهمة التالية</button>
+        </div>
+        <p class="hero-note" id="heroNote"></p>
+      </div>
+
+      <div class="ring-wrap" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 140 140">
+          <circle class="ring-bg" cx="70" cy="70" r="58"></circle>
+          <circle class="ring-fg" id="ringFg" cx="70" cy="70" r="58"></circle>
+        </svg>
+        <div class="ring-center">
+          <strong id="overallPercent">0%</strong>
+          <span>مكتمل</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="ملخص التقدم">
+      <article class="stat-card">
+        <span class="stat-label">المهام</span>
+        <strong class="stat-value" id="statTasks" dir="ltr">0 / 0</strong>
+        <span class="stat-sub" id="statTasksSub">مهمة منجزة</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-label">الساعات</span>
+        <strong class="stat-value" id="statHours" dir="ltr">0 / 0</strong>
+        <span class="stat-sub" id="statHoursSub">ساعة مذاكرة</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-label">الأيام</span>
+        <strong class="stat-value" id="statDays" dir="ltr">0 / 0</strong>
+        <span class="stat-sub" id="statDaysSub">يوم مكتمل</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-label">السلسلة</span>
+        <strong class="stat-value" id="statStreak">0</strong>
+        <span class="stat-sub" id="statStreakSub">أفضل سلسلة: 0</span>
+      </article>
+    </section>
+
+    <section class="next-card" id="nextCard" aria-live="polite">
+      <span class="next-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </span>
+      <div class="next-copy">
+        <p class="eyebrow">التالي</p>
+        <h3 id="nextTitle">جارٍ التحميل</h3>
+        <p id="nextMeta"></p>
+      </div>
+      <button class="btn btn-primary btn-sm" id="nextGoBtn" type="button">اذهب إلى اليوم</button>
+    </section>
+
+    <section class="panel" aria-labelledby="subjectsTitle">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">نظرة سريعة</p>
+          <h3 id="subjectsTitle">تقدم المواد</h3>
+        </div>
+        <span class="panel-hint">كل مادة على حدة</span>
+      </div>
+      <div class="subjects-grid" id="subjectsGrid"></div>
+    </section>
+
+    <nav class="week-nav" id="weekNav" aria-label="انتقل إلى الأسبوع"></nav>
+
+    <div class="weeks" id="weeks"></div>
+
+    <footer class="site-footer">
+      <div class="footer-copy">
+        <p>التقدم محفوظ في هذا المتصفح فقط.</p>
+        <p class="muted">صدّر نسخة احتياطية من وقت لآخر.</p>
+      </div>
+      <div class="footer-actions">
+        <button class="btn btn-ghost btn-sm" id="exportBtn" type="button">تصدير التقدم</button>
+        <button class="btn btn-ghost btn-sm" id="importBtn" type="button">استيراد التقدم</button>
+        <button class="btn btn-danger-ghost btn-sm" id="resetBtn" type="button">إعادة الضبط</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden>
+      </div>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal" id="celebrateModal" role="dialog" aria-modal="true" aria-labelledby="celebrateTitle" hidden>
+    <div class="modal-card">
+      <div class="modal-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m5 12 4.2 4.2L19 6"/>
+        </svg>
+      </div>
+      <p class="eyebrow">تم إنهاء اليوم</p>
+      <h3 id="celebrateTitle">أنجزت اليوم</h3>
+      <p class="modal-text" id="celebrateText"></p>
+      <div class="modal-stats" id="celebrateStats"></div>
+      <button class="btn btn-primary" id="celebrateClose" type="button">متابعة</button>
+    </div>
+  </div>
+
+  <script>
+    if (new URLSearchParams(window.location.search).get("embed") === "1") {
+      document.body.classList.add("embed");
+    }
+  </script>
+  <script src="plan.js?v=8"></script>
+  <script src="app.js?v=8"></script>
+  <script src="actions.js?v=8"></script>
+</body>
+</html>
