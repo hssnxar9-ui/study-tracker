@@ -12,7 +12,7 @@
   const taskDayId = data.taskDayId;
   const subjectColors = data.subjectColors;
   const subjectOrder = data.subjectOrder;
-  const STORAGE_KEY = "study-plan-2026-2027-v2";
+  const STORAGE_KEY = "study-plan-2026-2027-v3";
   const RING_CIRCUMFERENCE = 2 * Math.PI * 58;
 
   const state = loadState();
